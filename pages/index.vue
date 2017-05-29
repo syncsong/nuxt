@@ -1,15 +1,5 @@
 <template lang="pug">
-v-list(two-line='')
-  template(v-for='item in items')
-    v-subheader(v-if='item.header', v-text='item.header')
-    v-divider(v-else-if='item.divider', v-bind:inset='item.inset')
-      v-list-item(v-else='', v-bind:key='item.title' to='/room')
-        v-list-tile(avatar='')
-          v-list-tile-avatar
-            img(v-bind:src='item.avatar')
-          v-list-tile-content
-            v-list-tile-title(v-html='item.title')
-            v-list-tile-sub-title(v-html='item.subtitle')
+h1 index
 </template>
 
 <script>
