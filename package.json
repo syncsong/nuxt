@@ -5,7 +5,14 @@
   "author": "Eugen Soloviov <suenot@gmail.com>",
   "private": true,
   "dependencies": {
-    "nuxt": "latest"
+    "axios": "^0.16.1",
+    "node-sass": "^4.5.3",
+    "nuxt": "latest",
+    "pug": "^2.0.0-rc.1",
+    "sass-loader": "^6.0.5",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vuetify": "^0.12.2"
   },
   "scripts": {
     "dev": "nuxt",

@@ -1,5 +1,78 @@
-<template lang="pug">
-h1 index
+<template>
+  <v-app>
+    <v-toolbar class="cyan">
+      <v-toolbar-title>SyncSong</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn @click.native="toggleChords()" light icon>
+        <v-icon>music_note</v-icon>
+      </v-btn>
+      <v-btn @click.native="showSearchInput()" light icon>
+        <v-icon>search</v-icon>
+      </v-btn>
+    </v-toolbar>
+    <main>
+      <v-container fluid>
+
+        <v-layout row>
+          <v-container fluid class="px-4">
+            <v-flex xs12>
+              <v-text-field
+              name="search"
+              label="Search"
+              value=""
+              class="input-group--focused search-input hide"
+              light
+              ></v-text-field>
+            </v-flex>
+            <v-flex xs12>
+              <v-card>
+                <v-list two-line subheader>
+                  <v-subheader inset>Favorites rooms</v-subheader>
+
+                  <v-list-item v-for="item in items" v-bind:key="item.title">
+                    <v-list-tile avatar router nuxt to="/room">
+                      <v-list-tile-avatar>
+                        <v-icon v-bind:class="[item.iconClass]">{{ item.icon }}</v-icon>
+                      </v-list-tile-avatar>
+                      <v-list-tile-content>
+                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                        <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
+                      </v-list-tile-content>
+                      <v-list-tile-action>
+                        <v-btn icon ripple>
+                          <v-icon class="grey--text text--lighten-1">info</v-icon>
+                        </v-btn>
+                      </v-list-tile-action>
+                    </v-list-tile>
+                  </v-list-item>
+
+                  <v-divider inset></v-divider>
+                  <v-subheader inset>Recommened rooms</v-subheader>
+                  <v-list-item v-for="item in items2" v-bind:key="item.title">
+                    <v-list-tile>
+                      <v-list-tile-avatar>
+                        <v-icon v-bind:class="[item.iconClass]">{{ item.icon }}</v-icon>
+                      </v-list-tile-avatar>
+                      <v-list-tile-content>
+                        <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+                        <v-list-tile-sub-title>{{ item.subtitle }}</v-list-tile-sub-title>
+                      </v-list-tile-content>
+                      <v-list-tile-action>
+                        <v-btn icon ripple>
+                          <v-icon class="grey--text text--lighten-1">info</v-icon>
+                        </v-btn>
+                      </v-list-tile-action>
+                    </v-list-tile>
+                  </v-list-item>
+                </v-list>
+              </v-card>
+            </v-flex>
+          </v-container>
+        </v-layout>
+
+      </v-container>
+    </main>
+  </v-app>
 </template>
 
 <script>
@@ -7,25 +80,20 @@ h1 index
     data () {
       return {
         items: [
-          { header: 'Rooms' },
-          { avatar: '/static/doc-images/lists/1.jpg', title: 'Brunch this weekend?', subtitle: "<span class='grey--text text--darken-2'>Ali Connors</span> — I'll be in your neighborhood doing errands this weekend. Do you want to hang out?" },
-          { divider: true, inset: true },
-          { avatar: '/static/doc-images/lists/2.jpg', title: 'Summer BBQ <span class="grey--text text--lighten-1">4</span>', subtitle: "<span class='grey--text text--darken-2'>to Alex, Scott, Jennifer</span> — Wish I could come, but I'm out of town this weekend." },
-          { divider: true, inset: true },
-          { avatar: '/static/doc-images/lists/3.jpg', title: 'Oui oui', subtitle: "<span class='grey--text text--darken-2'>Sandra Adams</span> — Do you have Paris recommendations? Have you ever been?" }
+          { icon: 'folder', iconClass: 'grey lighten-1 white--text', title: 'SyncSong community', subtitle: 'Jan 9, 2014', 'url': '/room' },
+          { icon: 'folder', iconClass: 'grey lighten-1 white--text', title: 'Scoltech', subtitle: 'Jan 17, 2014', 'url': '/room' },
+          { icon: 'folder', iconClass: 'grey lighten-1 white--text', title: 'GuitarGo', subtitle: 'Jan 28, 2014', 'url': '/room' }
+        ],
+        items2: [
+          { icon: 'assignment', iconClass: 'blue white--text', title: 'Liveedu guitars', subtitle: 'Jan 20, 2014' },
+          { icon: 'call_to_action', iconClass: 'amber white--text', title: 'Kitchen band', subtitle: 'Jan 10, 2014' },
         ]
       }
     },
-    asyncData() {
-      return {
-        sidebar: false
+    methods: {
+      showSearchInput: function () {
+        document.querySelector('.search-input').classList.toggle('hide')
       }
     }
   }
 </script>
-
-<style scoped>
-  .title {
-    padding-left: 20px;
-  }
-</style>
