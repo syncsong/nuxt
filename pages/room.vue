@@ -1,7 +1,7 @@
 <template>
 <v-app>
   <v-toolbar class="cyan">
-    <v-toolbar-title>SyncSong</v-toolbar-title>
+    <v-toolbar-title><nuxt-link to="/">SyncSong</nuxt-link></v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn @click.native="toggleChords()" light icon>
       <v-icon>music_note</v-icon>
@@ -51,7 +51,6 @@ import axios from 'axios'
     created () {
       axios.get('/songs/aria-zasipay.html')
       .then(response => {
-        console.log(response)
         this.chord = response.data
       })
       .catch(e => {
@@ -63,7 +62,6 @@ import axios from 'axios'
         document.querySelector('.search-input').classList.toggle('hide')
       },
       toggleChords: function () {
-        console.log(document.querySelectorAll('.chord'))
         let chords = document.querySelectorAll('.chord')
         chords.forEach(function(item){
           item.classList.toggle('hideChord')

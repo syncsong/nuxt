@@ -1,11 +1,8 @@
 <template>
   <v-app>
     <v-toolbar class="cyan">
-      <v-toolbar-title>SyncSong</v-toolbar-title>
+      <v-toolbar-title><nuxt-link to="/">SyncSong</nuxt-link></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn @click.native="toggleChords()" light icon>
-        <v-icon>music_note</v-icon>
-      </v-btn>
       <v-btn @click.native="showSearchInput()" light icon>
         <v-icon>search</v-icon>
       </v-btn>
