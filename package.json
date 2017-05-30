@@ -5,7 +5,10 @@
   "author": "Eugen Soloviov <suenot@gmail.com>",
   "private": true,
   "dependencies": {
+    "apollo-client": "^1.3.0",
     "axios": "^0.16.1",
+    "graphql-tag": "^2.2.1",
+    "isomorphic-fetch": "^2.2.1",
     "node-sass": "^4.5.3",
     "nuxt": "latest",
     "pug": "^2.0.0-rc.1",
