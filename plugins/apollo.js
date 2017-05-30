@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import { ApolloClient, createNetworkInterface } from 'apollo-client'
 import 'isomorphic-fetch'
 
